@@ -2,13 +2,12 @@ var express = require('express');
 var router = express.Router();
 const comments = require('../controllers/comments');
 
-/* GET users listing. */
 router.get('/all', (req, res, next) => {
     comments.getComments()
         .then((docs) => res.json(docs))
         .catch((err) => {
             console.log(err);
-            res.send('efhuiifhufhui')
+            res.send('Erreur')
         });
 });
 
@@ -17,7 +16,7 @@ router.get('/', (req, res, next) => {
         .then((docs) => res.json(docs))
         .catch((err) => {
             console.log(err);
-            res.send('efhuiifhufhui')
+            res.send('Erreur')
         });
 });
 
@@ -26,7 +25,7 @@ router.delete('/', (req, res, next) => {
         .then((docs) => res.json(docs))
         .catch((err) => {
             console.log(err);
-            res.send('efhuiifhufhui')
+            res.send('Erreur')
         });
 });
 
@@ -35,13 +34,14 @@ router.post('/', (req, res) => {
         user: req.body.user,
         content: req.body.content,
         stars: req.body.stars,
-        filmTitle: req.body.film
+        filmTitle: req.body.film,
+        idFilm: req.body.idfilm
     }
     comments.addComment(newComment)
         .then((docs) => res.json(docs))
         .catch((err) => {
             console.log(err);
-            res.send('efhuiifhufhui')
+            res.send('Erreur')
         });
 });
 
@@ -50,14 +50,15 @@ router.put('/', (req, res) => {
         user: req.body.user,
         content: req.body.content,
         stars: req.body.stars,
-        filmTitle: req.body.film
+        filmTitle: req.body.film,
+        idFilm: req.body.idfilm
     }
     const id = req.body.id;    
     comments.editComment(id, newComment)
         .then((docs) => res.json(docs))
         .catch((err) => {
             console.log(err);
-            res.send('efhuiifhufhui')
+            res.send('Erreur')
         });
 });
 

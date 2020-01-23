@@ -115,5 +115,6 @@ function checkObject(object) {
         object.hasOwnProperty('content') &&
         object.hasOwnProperty('stars') &&
         object.hasOwnProperty('filmTitle') &&
-        Object.keys(object).length === 4);
+        object.hasOwnProperty('idFilm') &&
+        Object.keys(object).length === 5);
 }
