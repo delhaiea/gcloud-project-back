@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
         user: req.body.user,
         content: req.body.content,
         stars: req.body.stars,
-        filmTitle: req.body.film,
-        idFilm: req.body.idfilm
+        filmTitle: req.body.filmTitle,
+        idFilm: req.body.idFilm
     }
     comments.addComment(newComment)
         .then((docs) => res.json(docs))
@@ -50,8 +50,8 @@ router.put('/', (req, res) => {
         user: req.body.user,
         content: req.body.content,
         stars: req.body.stars,
-        filmTitle: req.body.film,
-        idFilm: req.body.idfilm
+        filmTitle: req.body.filmTitle,
+        idFilm: req.body.idFilm
     }
     const id = req.body.id;    
     comments.editComment(id, newComment)
